@@ -313,4 +313,86 @@ feature_run() {
     echo
     ( cd "$PROJECT_DIR" && python3 attendance_checker.py )
 }
+#feature archive logs
+feature_archive() {
+    if [[ -z "$PROJECT_NAME" ]]; then
+        read -rp "Enter project name to archive (without 'attendance_tracker_'): " user_input
+        PROJECT_NAME="attendance_tracker_${user_input}"
+        PROJECT_DIR="$SCRIPT_DIR/$PROJECT_NAME"
+    fi
 
+    local reports_dir="$PROJECT_DIR/reports"
+    if [[ ! -d "$reports_dir" ]]; then
+        error "No reports/ directory in $PROJECT_NAME — has the app been run?"
+        return 1
+    fi
+
+    local timestamp
+    timestamp="$(date +%Y%m%d_%H%M%S)"
+    local archives_dir="$PROJECT_DIR/archives"
+    local attendance_src="$reports_dir/attendance.log"
+    local absent_src="$reports_dir/absent.log"
+    local archived_any=0
+
+    #attendance.log
+    if [[ -f "$attendance_src" ]]; then
+        mkdir -p "$archives_dir/attendance"
+        local dest="$archives_dir/attendance/attendance_${timestamp}.log"
+        cp "$attendance_src" "$dest"
+        ok "Archived: $dest"
+        archived_any=1
+    else
+        warn "No attendance.log found (reports/attendance.log missing)."
+    fi
+
+    #absent.log
+    if [[ -f "$absent_src" ]]; then
+        mkdir -p "$archives_dir/absent"
+        local dest="$archives_dir/absent/absent_${timestamp}.log"
+        cp "$absent_src" "$dest"
+        ok "Archived: $dest"
+        archived_any=1
+    else
+        warn "No absent.log found (nobody was absent, or run hasn't produced one)."
+    fi
+
+    if (( archived_any )); then
+        ok "Archiving complete."
+    else
+        warn "Nothing was archived — no log files present."
+    fi
+}
+
+#main menu
+
+show_menu() {
+    echo
+    echo "=========================================="
+    echo "  Attendance Tracker — Deploy Agent"
+    echo "=========================================="
+    echo "  1) Deploy the application"
+    echo "  2) Run the application"
+    echo "  3) Archive the log files"
+    echo "  4) Exit"
+    echo "=========================================="
+}
+
+main() {
+    while true; do
+        show_menu
+        read -rp "Choose an option [1-4]: " choice
+
+        case "$choice" in
+            1) feature_deploy ;;
+            2) feature_run ;;
+            3) feature_archive ;;
+            4) info "Goodbye."; exit 0 ;;
+            *) warn "Invalid option; please choose 1-4." ;;
+        esac
+
+        echo
+        read -rp "Press Enter to return to the menu..." _
+    done
+}
+
+main "$@"
