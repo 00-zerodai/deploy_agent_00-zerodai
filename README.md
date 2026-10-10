@@ -92,3 +92,4 @@ The trap applies only to the shell script, not to the marking session.
   absent.log exists.
 - Tried deploying into an existing directory (overwrite and abort).
 
+# Video
