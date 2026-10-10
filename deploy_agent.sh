@@ -63,4 +63,42 @@ preflight_checks() {
 
 
 
+#trapping signals for smooth termination of program w/o suddenly killing
 
+cleanup_on_interrupt() {
+    echo
+    warn "Deployment interrupted! Cleaning up..."
+
+    if [[ -n "$PROJECT_DIR" && -d "$PROJECT_DIR" ]]; then
+        local zip_name="${PROJECT_NAME}_archive.zip"
+
+        # If a previous archive exists, remove it so we don't nest zips
+        [[ -f "$zip_name" ]] && rm -f "$zip_name"
+
+        info "Archiving incomplete project into: $zip_name"
+        if zip -r "$zip_name" "$PROJECT_DIR" >/dev/null 2>&1; then
+            ok "Archive created: $zip_name"
+        else
+            error "Failed to create archive."
+        fi
+
+        # Remove the half-made directory
+        rm -rf "$PROJECT_DIR"
+        ok "Removed incomplete directory: $PROJECT_DIR"
+    else
+        warn "No partial project directory found to archive."
+    fi
+
+    INTERRUPTED=1
+    echo
+    info "Session ended cleanly. Goodbye."
+    exit 130   # 128 + SIGINT(2) = 130; conventional for Ctrl+C
+}
+
+# Install traps only while deploying
+install_traps() {
+    trap cleanup_on_interrupt SIGINT SIGTSTP
+}
+uninstall_traps() {
+    trap - SIGINT SIGTSTP
+}
