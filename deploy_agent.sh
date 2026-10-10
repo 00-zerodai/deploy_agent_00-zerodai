@@ -102,3 +102,5 @@ install_traps() {
 uninstall_traps() {
     trap - SIGINT SIGTSTP
 }
+#temporary test
+preflight_checks
