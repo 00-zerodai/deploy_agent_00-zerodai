@@ -6,7 +6,7 @@ during deployment.
 
 ## Repository structure
 
-![demo](images/Screenshot_2026-10-12_at_10.45.05.png)
+![demo](images/Screenshot_2026-10-12_at_10.48.31.png)
 
 ## Requirements
 - Linux/macOS/WSL with Bash
