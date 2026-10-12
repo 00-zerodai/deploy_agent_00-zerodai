@@ -24,7 +24,7 @@ during deployment.
 ## Feature 1: Deploy
 1. Pre-flight checks that python3 and zip are installed, and prints the
    python3 version. The script exits with a message if either is missing.
-2. Asks for a project name and creates `attendance_tracker_latonia/` with
+2. Asks for a project name and creates `attendance_tracker_<name>/` with
    `Helpers/` and `reports/`. If the directory exists, you choose to
    overwrite or abort.
 3. Copies `attendance_checker.py` and `config.json` from `templates/`.

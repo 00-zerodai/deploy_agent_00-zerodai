@@ -1,0 +1,12 @@
+=== Session recorded 2026-10-12 17:31:39.418476 | total_sessions=5 | mode=live ===
+[2026-10-12 17:29:57.578773] Alice Johnson <alice@example.com>: PRESENT - attended 5/5 = 100.0%
+[2026-10-12 17:30:42.465825] Bob Smith <bob@example.com>: ABSENT - attended 1/5 = 20.0% | URGENT: below the failure threshold - will fail this class
+[2026-10-12 17:31:07.138226] Charlie Davis <charlie@example.com>: PRESENT - attended 3/5 = 60.0% | WARNING: below the warning threshold - please be careful
+[2026-10-12 17:31:37.481541] Diana Prince <diana@example.com>: PRESENT - attended 4/5 = 80.0%
+[2026-10-12 17:31:39.418227] Ethan Cole <ethan@example.com>: PRESENT - attended 4/5 = 80.0%
+=== Session recorded 2026-10-12 17:33:21.374189 | total_sessions=5 | mode=live ===
+[2026-10-12 17:32:53.659023] Alice Johnson <alice@example.com>: ABSENT - attended 5/5 = 100.0%
+[2026-10-12 17:33:00.299883] Bob Smith <bob@example.com>: PRESENT - attended 2/5 = 40.0% | URGENT: below the failure threshold - will fail this class
+[2026-10-12 17:33:14.018797] Charlie Davis <charlie@example.com>: ABSENT - attended 3/5 = 60.0% | WARNING: below the warning threshold - please be careful
+[2026-10-12 17:33:18.211415] Diana Prince <diana@example.com>: ABSENT - attended 4/5 = 80.0%
+[2026-10-12 17:33:21.374100] Ethan Cole <ethan@example.com>: ABSENT - attended 4/5 = 80.0%
