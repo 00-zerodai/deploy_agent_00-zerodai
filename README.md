@@ -24,7 +24,7 @@ during deployment.
 ## Feature 1: Deploy
 1. Pre-flight checks that python3 and zip are installed, and prints the
    python3 version. The script exits with a message if either is missing.
-2. Asks for a project name and creates `attendance_tracker_<name>/` with
+2. Asks for a project name and creates `attendance_tracker_latonia/` with
    `Helpers/` and `reports/`. If the directory exists, you choose to
    overwrite or abort.
 3. Copies `attendance_checker.py` and `config.json` from `templates/`.
@@ -71,7 +71,7 @@ continues without crashing. Final paths are printed.
 ## Signal handling (Ctrl+C / Ctrl+Z)
 During deployment, `SIGINT` and `SIGTSTP` are trapped. On interrupt, the script:
 1. Prints that deployment was interrupted.
-2. Zips what exists so far into `attendance_tracker_<name>_archive.zip`.
+2. Zips what exists so far into `attendance_tracker_bruno_archive.zip`.
 3. Deletes the incomplete project directory.
 4. Exits cleanly.
 ![demo](images/Screenshot_2026-10-10_at_16.39.50.png)
@@ -82,7 +82,7 @@ The trap applies only to the shell script, not to the marking session.
 1. Run `./deploy_agent.sh` and choose Deploy.
 2. At any prompt (e.g. the student count), press Ctrl+C or Ctrl+Z.
 3. Check that the `.zip` exists (`ls`) and that the project directory is gone.
-4. Inspect the zip contents with `unzip -l attendance_tracker_<name>_archive.zip`.
+4. Inspect the zip contents with `unzip -l attendance_tracker_bruno_archive.zip`.
    It contains whatever had been created before the interrupt.
 
 ## How I tested the deployment
