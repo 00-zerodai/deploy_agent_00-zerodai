@@ -6,13 +6,7 @@ during deployment.
 
 ## Repository structure
 
-deploy_agent_<username>/
-├── deploy_agent.sh
-├── README.md
-└── templates/
-├── attendance_checker.py   (unmodified)
-├── assets.csv              (sample roster, 10 students)
-└── config.json             (default thresholds)
+![demo](images/Screenshot_2026-10-12_at_10.45.05.png)
 
 ## Requirements
 - Linux/macOS/WSL with Bash
