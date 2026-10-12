@@ -95,3 +95,4 @@ The trap applies only to the shell script, not to the marking session.
 - Tried deploying into an existing directory (overwrite and abort).
 
 # Video
+[Watch the run-through video](https://youtu.be/6XfqACwcU88)
