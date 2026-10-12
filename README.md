@@ -17,8 +17,9 @@ during deployment.
     chmod +x deploy_agent.sh
     ./deploy_agent.sh
 
-I used an **interactive menu**: <describe, e.g. 1) Deploy 2) Run 3) Archive 4) Exit>.
-<Or describe your flags if you chose that.>
+## I used an **interactive menu**: 
+
+![demo](images/Screenshot_2026-10-12_at_10.58.00.png)
 
 ## Feature 1: Deploy
 1. Pre-flight checks that python3 and zip are installed, and prints the
