@@ -42,7 +42,7 @@ I used an **interactive menu**: <describe, e.g. 1) Deploy 2) Run 3) Archive 4) E
    `config.json` is owner read/write only (`chmod 600`).
 6. Runs the app once to verify the deployment.
 
-![demo](images/Screenshot 2026-10-10 at 17.17.46.png)
+![demo](images/Screenshot_2026-10-10_at_17.17.46.png)
 
 ### Why total_sessions matters
 `total_sessions` must always equal prior sessions in the roster + 1
@@ -53,7 +53,7 @@ You are asked whether to update the alert thresholds. If yes, the script
 prompts for `warning` (default 75) and `failure` (default 50), checks that
 each input is a number, then uses `sed -i` to edit only the `"warning"` and
 `"failure"` lines. The file is not reformatted or reordered.
-![demo](images/Screenshot 2026-10-10 at 16.34.57.png)
+![demo](images/Screenshot_2026-10-10_at_16.34.57.png)
 
 ## Feature 2: Run
 Enters the project folder and runs `python3 attendance_checker.py`.
@@ -69,8 +69,8 @@ After a run, the script checks for `reports/attendance.log` and
 
 If a log is missing (e.g. nobody was absent), the script reports it and
 continues without crashing. Final paths are printed.
-![demo](images/Screenshot 2026-10-12 at 10.09.19.png)
-![demo](images/Screenshot 2026-10-12 at 10.10.24.png)
+![demo](images/Screenshot_2026-10-12_at_10.09.19.png)
+![demo](images/Screenshot_2026-10-12_at_10.10.24.png)
 
 
 ## Signal handling (Ctrl+C / Ctrl+Z)
@@ -79,7 +79,7 @@ During deployment, `SIGINT` and `SIGTSTP` are trapped. On interrupt, the script:
 2. Zips what exists so far into `attendance_tracker_<name>_archive.zip`.
 3. Deletes the incomplete project directory.
 4. Exits cleanly.
-![demo](images/Screenshot 2026-10-10 at 16.39.50.png)
+![demo](images/Screenshot_2026-10-10_at_16.39.50.png)
 
 The trap applies only to the shell script, not to the marking session.
 
