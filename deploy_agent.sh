@@ -1,9 +1,4 @@
 #!/bin/bash
-
-
-# deploy_agent.sh - Automated Project Bootstrapping
-
-
 set -u  # error on undefined variables (but NOT set -e; would return errors everytime)
 
 #Colors for readable output
